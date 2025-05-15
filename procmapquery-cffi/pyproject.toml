@@ -1,0 +1,16 @@
+[project]
+name = "procmapquery-cffi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["cffi"]
+
+[project.scripts]
+procmapquery-cffi = "procmapquery_cffi:main"
+
+[build-system]
+requires = ["hatchling", "cffi", "setuptools"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.hooks.custom]

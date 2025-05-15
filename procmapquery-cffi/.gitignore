@@ -1,0 +1,7 @@
+.venv
+uv.lock
+dist
+src/procmapquery_cffi/_procmapquery.c
+src/procmapquery_cffi/_procmapquery.o
+*.so
+__pycache__

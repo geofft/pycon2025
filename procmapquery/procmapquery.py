@@ -69,7 +69,7 @@ def get_libraries(proc_maps):
             response = query.ioctl(proc_maps)
         except FileNotFoundError:
             break
-        libraries.add(os.fsdecode(buf[:query.vma_name_size]))
+        libraries.add(os.fsdecode(buf[:response.vma_name_size]))
         query.query_addr = response.vma_end
     return libraries
 
