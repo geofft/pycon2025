@@ -19,18 +19,10 @@ None of the Python language features are particularly new, so any Python version
 Examples
 ---
 
-Each example is in its own subdirectory. The two examples in the talk were:
-
-* `F_CREATED_QUERY` is in [createdquery](createdquery)
-* `PROCMAP_QUERY` is in [procmapquery](procmapquery)
-
-I also have some content that was cut for time:
-
-* `F_DUPFD_QUERY` is in [dupfdquery](dupfdquery)
-
-as well as examples of using other approaches to interface with the Linux kernel:
-
-* A `cffi`-based approach to `PROCMAP_QUERY` is in [procmapquery-cffi](procmapquery-cffi)
+* [createdquery](createdquery): the `F_CREATED_QUERY` example from the talk
+* [dupfdquery](dupfdquery): a similar example of `F_DUPFD_QUERY`, cut for time
+* [procmapquery](procmapquery): the `PROCMAP_QUERY` example from the talk (using `struct`)
+* [procmapquery-cffi](procmapquery-cffi): an alternative approach to `PROCMAP_QUERY`, using CFFI
 
 Further reading
 ---
@@ -50,6 +42,13 @@ I also recommended the following resources for learning what's going on in the L
 
 * [LWN](https://lwn.net), which has [summaries of the "merge windows" for upcoming kernel releases](https://lwn.net/Kernel/Index/#Releases), as well as a lot of coverage of major features, ongoing discussions, and things besides the Linux kernel itself. I am very happy to support them by subscribing, but all their paywalled content is free after a week.
 * [KernelNewbies](https://kernelnewbies.org) is a website / community aiming to help people who are new to contributing to the Linux kernel. They publish [detailed changelogs of each kernel release](https://kernelnewbies.org/LinuxVersions) with info on basically every change, linking to LWN articles or other blog posts if they exist, or just to the commit message at worst.
+
+Finally, depending on your needs, you might want to investigate the following approaches:
+
+* There is much more of the [ctypes](https://docs.python.org/3/library/ctypes.html) module than what was used in this talk. It is very commonly used for binding to other C libraries; you may also find it useful for binding to the C standard library's own wrappers of system calls, though new system calls are rare.
+* [Cython](https://cython.org/) lets you write in a Python-like language with some extensions for talking about C types.
+* If you need full control, there is always the [C API to Python](https://docs.python.org/3/c-api/index.html), which lets you write Python modules in C. This is how standard library modules like `fcntl` are themselves written.
+* If you need full control but do not want to write C, a compelling option is using [PyO3](https://pyo3.rs), which lets you write Python modules in Rust, plus tools like [bindgen](https://rust-lang.github.io/rust-bindgen/) to make C functions and data types available in Python.
 
 Contact and copyright
 ---
