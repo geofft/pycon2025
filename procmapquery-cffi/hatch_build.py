@@ -1,5 +1,6 @@
-from typing import Any
+import os
 import sys
+from typing import Any
 
 from cffi import FFI
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
@@ -50,9 +51,10 @@ class CustomBuildHook(BuildHookInterface):
         """)
 
         try:
-            ffibuilder.compile(verbose=True, tmpdir="src/procmapquery_cffi")
+            library = ffibuilder.compile(verbose=True, tmpdir="src/procmapquery_cffi")
         except Exception as e:
             sys.exit(e)
 
         build_data["infer_tag"] = True
         build_data["pure_python"] = False
+        build_data["artifacts"].append(os.path.basename(library))
