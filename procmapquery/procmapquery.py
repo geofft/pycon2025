@@ -42,7 +42,7 @@ class ProcmapQuery:
     def unpack(cls, packed: bytes) -> "Self":
         return cls(*cls._STRUCT.unpack(packed))
 
-    def ioctl(self, fd: int) -> Self:
+    def ioctl(self, fd: int) -> "Self":
         return self.unpack(fcntl.ioctl(fd, PROCMAP_QUERY, self.pack()))
         
 
