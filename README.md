@@ -27,7 +27,7 @@ Examples
 Further reading
 ---
 
-[Talk slides with presenter notes](https://ldpreload.com/p/pycon-2025-whats-new-in-the-linux-kernel.pdf) are available on my website. I will also link the video as soon as it's posted.
+[Talk slides with presenter notes](https://ldpreload.com/p/pycon-2025-whats-new-in-the-linux-kernel.pdf) are available on my website, and [the talk video](https://www.youtube.com/watch?v=i-mXdwPUwzQ) is on YouTube.
 
 In my talk I recommended the following code search options:
 
